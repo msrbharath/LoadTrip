@@ -1,0 +1,63 @@
+<p>
+  expense-details works!
+</p>
+<h2>Expense Details</h2> 
+
+<hr/>
+<div *ngIf="trip">
+  <div>
+    <label><b>Rate based on Agreement: </b></label> {{trip.rateBasedOnAgreement}}
+  </div>
+  <div>
+    <label><b>Loading Charge: </b></label> {{trip.loadingCharge}}
+  </div>
+  <div>
+    <label><b>Unloading Charge: </b></label> {{trip.unloadingCharge}}
+  </div>  
+  <div>
+    <label><b>Invoice Ref: </b></label> {{trip.invoiceRef}}
+  </div>
+  <div>
+    <label><b>End Branch Date: </b></label> {{trip.endBranchDate}}
+  </div>
+  <div>
+    <label><b>Gas Indent: </b></label> {{trip.gasIndent}}
+  </div>
+  <div>
+    <label><b>Gas Cash: </b></label> {{trip.gasCash}}
+  </div> 
+  <div>
+    <label><b>Start ODO: </b></label> {{trip.startODO}}
+  </div>
+  <div>
+    <label><b>End ODO: </b></label> {{trip.endODO}}
+  </div>
+  <div>
+    <label><b>Driver Allowance: </b></label> {{trip.driverAllowance}}
+  </div>
+  <div>
+    <label><b>Parking: </b></label> {{trip.parking}}
+  </div>
+  <div>
+    <label><b>Metro Charges: </b></label> {{trip.metroCharges}}
+  </div>
+  <div>
+    <label><b>Traffice police: </b></label> {{trip.trafficPolice}}
+  </div>
+  <div>
+    <label><b>Other Trip expense: </b></label> {{trip.otherTripExpense}}
+  </div>
+  <div>
+    <label><b>Total Revenue: </b></label> {{trip.totalRevenue}}
+  </div>
+  <div>
+    <label><b>Total Expense: </b></label> {{trip.totalExpense}}
+  </div>
+  <div>
+    <label><b>Profit/Loss: </b></label> {{trip.profitLoss}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>

@@ -1,0 +1,31 @@
+export class Trip {
+    id: number;
+    tripStartDate: string;
+    lorryBookingReferenceNo: string;
+    vechicleType: string;
+    vechicleNumber: string;
+    fromPlace: string;
+    toPlace: string;
+    dealerName: string;
+    invoiceBranch: string;
+    noOfPackage: number;
+    occupancyPercentage: number;
+    haltDays: number;
+    rateBasedOnAgreement: number;
+    loadingCharge: number;
+    unloadingCharge:number;
+    invoiceRef: string;
+    endBranchDate: string;
+    gasIndent: string;
+    gasCash: number;
+    startODO: number;
+    endODO: number;
+    driverAllowance: number;
+    parking: number;
+    metroCharges: number;
+    trafficPolice: number;
+    otherTripExpense: number;
+    totalRevenue: number;
+    totalExpense: number;
+    profitLoss: number;
+}

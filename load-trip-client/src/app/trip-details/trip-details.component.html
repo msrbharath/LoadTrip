@@ -1,0 +1,47 @@
+<p>
+  trip-details works!
+</p>
+<h2>Trip Details</h2> 
+
+<hr/>
+<div *ngIf="trip">
+  <div>
+    <label><b>Trip start Date: </b></label> {{trip.tripStartDate}}
+  </div>
+  <div>
+    <label><b>Lorry Booking Reference#: </b></label> {{trip.lorryBookingReferenceNo}}
+  </div>
+  <div>
+    <label><b>Vechicle Type: </b></label> {{trip.vehicleType}}
+  </div>  
+  <div>
+    <label><b>Vehicle Number: </b></label> {{trip.vehicleNumber}}
+  </div>
+  <div>
+    <label><b>From: </b></label> {{trip.fromDistance}}
+  </div>
+  <div>
+    <label><b>To: </b></label> {{trip.toDistance}}
+  </div>
+  <div>
+    <label><b>Dealer Name: </b></label> {{trip.dealerName}}
+  </div> 
+  <div>
+    <label><b>Invoice Branch: </b></label> {{trip.invoiceBranch}}
+  </div>
+  <div>
+    <label><b>No of Package: </b></label> {{trip.noOfPackage}}
+  </div>
+  <div>
+    <label><b>Occupancy %: </b></label> {{trip.occupancyPercentage}}
+  </div>
+  <div>
+    <label><b>Halt days: </b></label> {{trip.haltDays}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+
+
