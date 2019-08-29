@@ -24,11 +24,7 @@ export class TripDetailsComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
     
-    this.tripService.getTrip(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.trip = data;
-      }, error => console.log(error));
+    this.tripService.getTripsList();
   }
 
   reloadData() {

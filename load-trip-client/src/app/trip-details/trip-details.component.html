@@ -1,47 +1,55 @@
-<p>
-  trip-details works!
-</p>
 <h2>Trip Details</h2> 
 
 <hr/>
 <div *ngIf="trip">
   <div>
     <label><b>Trip start Date: </b></label> {{trip.tripStartDate}}
+    <input type="text" name="tripStartDate" id="tripStartDate">
   </div>
   <div>
     <label><b>Lorry Booking Reference#: </b></label> {{trip.lorryBookingReferenceNo}}
+    <input type="text" name="lorryBookingReferenceNo" id="lorryBookingReferenceNo">
   </div>
   <div>
     <label><b>Vechicle Type: </b></label> {{trip.vehicleType}}
+    <input type="text" name="vehicleType" id="vehicleType">
   </div>  
   <div>
     <label><b>Vehicle Number: </b></label> {{trip.vehicleNumber}}
+    <input type="text" name="vehicleNumber" id="vehicleNumber">
   </div>
   <div>
     <label><b>From: </b></label> {{trip.fromDistance}}
+    <input type="text" name="fromDistance" id="fromDistance">
   </div>
   <div>
     <label><b>To: </b></label> {{trip.toDistance}}
+    <input type="text" name="toDistance" id="toDistance">
   </div>
   <div>
     <label><b>Dealer Name: </b></label> {{trip.dealerName}}
+    <input type="text" name="dealerName" id="dealerName">
   </div> 
   <div>
     <label><b>Invoice Branch: </b></label> {{trip.invoiceBranch}}
+    <input type="text" name="invoiceBranch" id="invoiceBranch">
   </div>
   <div>
     <label><b>No of Package: </b></label> {{trip.noOfPackage}}
+    <input type="text" name="noOfPackage" id="noOfPackage">
   </div>
   <div>
     <label><b>Occupancy %: </b></label> {{trip.occupancyPercentage}}
+    <input type="text" name="occupancyPercentage" id="occupancyPercentage">
   </div>
   <div>
     <label><b>Halt days: </b></label> {{trip.haltDays}}
+    <input type="text" name="haltDays" id="haltDays">
   </div>
 </div>
 
 <br>
 <br>
-<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+<button (click)="list()" class="btn btn-primary">Add Trip</button><br>
 
 

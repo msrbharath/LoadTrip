@@ -1,7 +1,6 @@
 package com.bharath.loadtrip.controller;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -20,58 +19,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bharath.loadtrip.exception.ResourceNotFoundException;
-import com.bharath.loadtrip.model.Employee;
 import com.bharath.loadtrip.model.Trip;
-import com.bharath.loadtrip.repository.EmployeeRepository;
 import com.bharath.loadtrip.repository.TripRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class TripController {
 	@Autowired
 	private TripRepository tripRepository;
 
-	@GetMapping("/employees")
-	public List<Trip> getAllEmployees() {
+	@GetMapping("/trips")
+	public List<Trip> getAllTrips() {
 		return tripRepository.findAll();
 	}
 
-	@GetMapping("/employees/{id}")
-	public ResponseEntity<Trip> getEmployeeById(@PathVariable(value = "id") Long employeeId)
+	@GetMapping("/trips/{id}")
+	public ResponseEntity<Trip> getTripById(@PathVariable(value = "id") Long tripId)
 			throws ResourceNotFoundException {
-		Trip employee = tripRepository.findById(employeeId)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-		return ResponseEntity.ok().body(employee);
+		Trip trip = tripRepository.findById(tripId)
+				.orElseThrow(() -> new ResourceNotFoundException("Trip not found for this id :: " + tripId));
+		return ResponseEntity.ok().body(trip);
 	}
 
-	@PostMapping("/employees")
-	public Trip createEmployee(@Valid @RequestBody Trip trip) {
+	@PostMapping("/trips")
+	public Trip createTrip(@Valid @RequestBody Trip trip) {
 		return tripRepository.save(trip);
 	}
 
-	@PutMapping("/employees/{id}")
-	public ResponseEntity<Trip> updateEmployee(@PathVariable(value = "id") Long employeeId,
+	@PutMapping("/trips/{id}")
+	public ResponseEntity<Trip> updateTrip(@PathVariable(value = "id") Long tripId,
 			@Valid @RequestBody Trip tripDetails) throws ResourceNotFoundException {
-		Trip employee = tripRepository.findById(employeeId)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+		Trip trip = tripRepository.findById(tripId)
+				.orElseThrow(() -> new ResourceNotFoundException("Trip not found for this id :: " + tripId));
 
 		/*
 		 * employee.setEmailId(tripDetails.getEmailId());
 		 * employee.setLastName(tripDetails.getLastName());
 		 * employee.setFirstName(tripDetails.getFirstName());
 		 */
-		final Trip updatedEmployee = tripRepository.save(employee);
-		return ResponseEntity.ok(updatedEmployee);
+		final Trip updatedTrip = tripRepository.save(trip);
+		return ResponseEntity.ok(updatedTrip);
 	}
 
-	@DeleteMapping("/employees/{id}")
-	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)
+	@DeleteMapping("/trips/{id}")
+	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long tripId)
 			throws ResourceNotFoundException {
-		Trip employee = tripRepository.findById(employeeId)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
+		Trip trip = tripRepository.findById(tripId)
+				.orElseThrow(() -> new ResourceNotFoundException("Trip not found for this id :: " + tripId));
 
-		tripRepository.delete(employee);
+		tripRepository.delete(trip);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;

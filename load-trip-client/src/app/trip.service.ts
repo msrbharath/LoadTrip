@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TripService {
 
-  private baseUrl = 'http://localhost:8080/load-trip/api/trip';
+  private baseUrl = 'http://localhost:8080/load-trip/api/trips';
 
   constructor(private http: HttpClient) { }
 
