@@ -12,6 +12,10 @@ import { ExpenseDetailsComponent } from './expense-details/expense-details.compo
 import { TripReportComponent } from './trip-report/trip-report.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
 import { CreateExpenseComponent } from './create-expense/create-expense.component';
+import { TripListComponent } from './trip-list/trip-list.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +26,17 @@ import { CreateExpenseComponent } from './create-expense/create-expense.componen
     ExpenseDetailsComponent,
     TripReportComponent,
     CreateTripComponent,
-    CreateExpenseComponent
+    CreateExpenseComponent,
+    TripListComponent,
+    ExpenseListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

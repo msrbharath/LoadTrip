@@ -14,12 +14,22 @@ export class ExpenseDetailsComponent implements OnInit {
   id: number;
   trip: Trip;
   trips: Observable<Trip[]>;
+  bsConfig;
 
   constructor(private route: ActivatedRoute,private tripService: TripService,
     private router: Router) {}
 
   ngOnInit() {
+    this.trips = this.tripService.getTripsList();
     this.trip = new Trip();
+    this.bsConfig = {
+      containerClass: 'theme-blue',
+      dateInputFormat: 'DD-MMM-YYYY'
+    };
+  }
+
+  selectTrip(tripID: any){
+    this.trip = this.trips[tripID];
   }
 
 }

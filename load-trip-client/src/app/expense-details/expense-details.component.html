@@ -2,76 +2,91 @@
 
 <hr/>
 <div *ngIf="trip">
-  <div>
-    <label><b>Rate based on Agreement: </b></label> {{trip.rateBasedOnAgreement}}
-    <input type="text" name="rateBasedOnAgreement" id="rateBasedOnAgreement">
-  </div>
-  <div>
-    <label><b>Loading Charge: </b></label> {{trip.loadingCharge}}
-    <input type="text" name="loadingCharge" id="loadingCharge">
-  </div>
-  <div>
-    <label><b>Unloading Charge: </b></label> {{trip.unloadingCharge}}
-    <input type="text" name="unloadingCharge" id="unloadingCharge">
-  </div>  
-  <div>
-    <label><b>Invoice Ref: </b></label> {{trip.invoiceRef}}
-    <input type="text" name="invoiceRef" id="invoiceRef">
-  </div>
-  <div>
-    <label><b>End Branch Date: </b></label> {{trip.endBranchDate}}
-    <input type="text" name="endBranchDate" id="endBranchDate">
-  </div>
-  <div>
-    <label><b>Gas Indent: </b></label> {{trip.gasIndent}}
-    <input type="text" name="gasIndent" id="gasIndent">
-  </div>
-  <div>
-    <label><b>Gas Cash: </b></label> {{trip.gasCash}}
-    <input type="text" name="gasCash" id="gasCash">
-  </div> 
-  <div>
-    <label><b>Start ODO: </b></label> {{trip.startODO}}
-    <input type="text" name="startODO" id="startODO">
-  </div>
-  <div>
-    <label><b>End ODO: </b></label> {{trip.endODO}}
-    <input type="text" name="endODO" id="endODO">
-  </div>
-  <div>
-    <label><b>Driver Allowance: </b></label> {{trip.driverAllowance}}
-    <input type="text" name="driverAllowance" id="driverAllowance">
-  </div>
-  <div>
-    <label><b>Parking: </b></label> {{trip.parking}}
-    <input type="text" name="parking" id="parking">
-  </div>
-  <div>
-    <label><b>Metro Charges: </b></label> {{trip.metroCharges}}
-    <input type="text" name="metroCharges" id="metroCharges">
-  </div>
-  <div>
-    <label><b>Traffice police: </b></label> {{trip.trafficPolice}}
-    <input type="text" name="trafficPolice" id="trafficPolice">
-  </div>
-  <div>
-    <label><b>Other Trip expense: </b></label> {{trip.otherTripExpense}}
-    <input type="text" name="otherTripExpense" id="otherTripExpense">
-  </div>
-  <div>
-    <label><b>Total Revenue: </b></label> {{trip.totalRevenue}}
-    <input type="text" name="totalRevenue" id="totalRevenue">
-  </div>
-  <div>
-    <label><b>Total Expense: </b></label> {{trip.totalExpense}}
-    <input type="text" name="totalExpense" id="totalExpense">
-  </div>
-  <div>
-    <label><b>Profit/Loss: </b></label> {{trip.profitLoss}}
-    <input type="text" name="profitLoss" id="profitLoss">
-  </div>
+  <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label><b>Trip ID: </b></label> {{trip.id}}
+        <select (change)="selectTrip($event.target.value)">
+            <option *ngFor="let tripp of trips" value={{tripp}}>
+                {{tripp}}
+            </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label><b>Rate based  Agreement: </b></label> {{trip.rateBasedOnAgreement}}
+        <input type="text" class="form-control" [(ngModel)]="trip.rateBasedOnAgreement" name="rateBasedOnAgreement" id="rateBasedOnAgreement">
+      </div>
+      <div class="form-group">
+        <label><b>Loading Charge: </b></label> {{trip.loadingCharge}}
+        <input type="text" class="form-control" [(ngModel)]="trip.loadingCharge" name="loadingCharge" id="loadingCharge">
+      </div>
+      <div class="form-group">
+        <label><b>Unloading Charge: </b></label> {{trip.unloadingCharge}}
+        <input type="text" class="form-control" [(ngModel)]="trip.unloadingCharge" name="unloadingCharge" id="unloadingCharge">
+      </div>  
+      <div class="form-group">
+        <label><b>Invoice Ref: </b></label> {{trip.invoiceRef}}
+        <input type="text" class="form-control" [(ngModel)]="trip.invoiceRef" name="invoiceRef" id="invoiceRef">
+      </div>
+      <div class="form-group">
+        <label><b>End Branch Date: </b></label> {{trip.endBranchDate}}
+        <input type="text"
+        name="endBranchDate" 
+        id="endBranchDate"
+        placeholder="End Branch Date"
+        [bsConfig]="bsConfig" 
+        class="form-control"
+        [(ngModel)]="trip.endBranchDate"
+        [(bsValue)]="trip.endBranchDate"
+        bsDatepicker>
+      </div>
+      <div class="form-group">
+        <label><b>Gas Indent: </b></label> {{trip.gasIndent}}
+        <input type="text" class="form-control" [(ngModel)]="trip.gasIndent" name="gasIndent" id="gasIndent">
+      </div>
+      <div class="form-group">
+        <label><b>Gas Cash: </b></label> {{trip.gasCash}}
+        <input type="text" class="form-control" [(ngModel)]="trip.gasCash" name="gasCash" id="gasCash">
+      </div> 
+      <div class="form-group">
+        <label><b>Start ODO: </b></label> {{trip.startODO}}
+        <input type="text" class="form-control" [(ngModel)]="trip.startODO" name="startODO" id="startODO">
+      </div>
+      <div class="form-group">
+        <label><b>End ODO: </b></label> {{trip.endODO}}
+        <input type="text" class="form-control" [(ngModel)]="trip.endODO" name="endODO" id="endODO">
+      </div>
+      <div class="form-group">
+        <label><b>Driver Allowance: </b></label> {{trip.driverAllowance}}
+        <input type="text" class="form-control" [(ngModel)]="trip.driverAllowance" name="driverAllowance" id="driverAllowance">
+      </div>
+      <div class="form-group">
+        <label><b>Parking: </b></label> {{trip.parking}}
+        <input type="text" class="form-control" [(ngModel)]="trip.parking" name="parking" id="parking">
+      </div>
+      <div class="form-group">
+        <label><b>Metro Charges: </b></label> {{trip.metroCharges}}
+        <input type="text" class="form-control" [(ngModel)]="trip.metroCharges" name="metroCharges" id="metroCharges">
+      </div>
+      <div class="form-group">
+        <label><b>Traffice police: </b></label> {{trip.trafficPolice}}
+        <input type="text" class="form-control" [(ngModel)]="trip.trafficPolice" name="trafficPolice" id="trafficPolice">
+      </div>
+      <div class="form-group">
+        <label><b>Other Trip expense: </b></label> {{trip.otherTripExpense}}
+        <input type="text" class="form-control" [(ngModel)]="trip.otherTripExpense" name="otherTripExpense" id="otherTripExpense">
+      </div>
+      <div class="form-group">
+        <label><b>Total Revenue: </b></label> {{trip.totalRevenue}}
+        <input type="text" class="form-control" [(ngModel)]="trip.totalRevenue" name="totalRevenue" id="totalRevenue">
+      </div>
+      <div class="form-group">
+        <label><b>Total Expense: </b></label> {{trip.totalExpense}}
+        <input type="text" class="form-control" [(ngModel)]="trip.totalExpense" name="totalExpense" id="totalExpense">
+      </div>on
+      <div class="form-group">
+        <label><b>Profit/Loss: </b></label> {{trip.profitLoss}}
+        <input type="text" class="form-control" [(ngModel)]="trip.profitLoss" name="profitLoss" id="profitLoss">
+      </div>
+      <button type="submit" class="btn btn-success">Add Expense</button>  
+  </form>
 </div>
-
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Add Expense</button><br>

@@ -15,16 +15,35 @@ export class TripDetailsComponent implements OnInit {
   trip: Trip;
   trips: Observable<Trip[]>;
 
+  submitted = false;
+  bsConfig;
+
   constructor(private route: ActivatedRoute,private tripService: TripService,
     private router: Router) {}
 
   ngOnInit() {
-    this.reloadData();
+    this.submitted = false;
     this.trip = new Trip();
+    this.bsConfig = {
+      containerClass: 'theme-blue',
+      dateInputFormat: 'DD-MMM-YYYY'
+    };
+  }
 
-    this.id = this.route.snapshot.params['id'];
-    
-    this.tripService.getTripsList();
+  save() {
+    this.tripService.createTrip(this.trip)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.trip = new Trip();
+    this.gotoList();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();    
+  }
+
+  gotoList() {
+    this.router.navigate(['/tripList']);
   }
 
   reloadData() {
@@ -39,9 +58,5 @@ export class TripDetailsComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
-  }
-
-  tripDetails(id: number){
-    this.router.navigate(['details', id]);
   }
 }

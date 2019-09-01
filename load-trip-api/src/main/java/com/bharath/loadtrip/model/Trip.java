@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "load_trip")
+@Table(name = "trip")
 public class Trip {
 
 	public Trip(long id, Date tripStartDate, String lorryBookingReferenceNo, String vehicleType, String vehicleNumber,
@@ -60,16 +60,16 @@ public class Trip {
 	@Column(name = "ID", unique = true, updatable = false, nullable = false)
 	private long id;
 	
-	@Column(name = "trip_start_date")
+	@Column(name = "trip_start_date", nullable = false)
 	private Date tripStartDate;
 	
 	@Column(name = "lorry_booking_ref", nullable = false)
 	private String lorryBookingReferenceNo;
 	
-	@Column(name = "vehicle_type", nullable = false)
+	@Column(name = "vehicle_type")
 	private String vehicleType;
 	
-	@Column(name = "vehicle_number", nullable = false)
+	@Column(name = "vehicle_number")
 	private String vehicleNumber;
 	
 	@Column(name = "from_destination", nullable = false)
@@ -84,64 +84,64 @@ public class Trip {
 	@Column(name = "invoice_branch", nullable = false)
 	private String invoiceBranch;
 	
-	@Column(name = "no_of_package", nullable = false)
+	@Column(name = "no_of_package")
 	private long noOfPackage;
 	
-	@Column(name = "occupancy_percent", nullable = false)
+	@Column(name = "occupancy_percent")
 	private long occupancyPercent;
 	
-	@Column(name = "halt_days", nullable = false)
+	@Column(name = "halt_days")
 	private long haltDays;
 	
-	@Column(name = "rate_based_on_agreement", nullable = false)
+	@Column(name = "rate_based_on_agreement")
 	private long rateBasedOnAgreement;
 	
-	@Column(name = "loading_charge", nullable = false)
+	@Column(name = "loading_charge")
 	private long loadingCharge;
 	
-	@Column(name = "unloading_charge", nullable = false)
+	@Column(name = "unloading_charge")
 	private long unloadingCharge;
 	
-	@Column(name = "invoice_ref_no", nullable = false)
+	@Column(name = "invoice_ref_no")
 	private String invoiceRefNo;
 	
-	@Column(name = "end_branch_date", nullable = false)
+	@Column(name = "end_branch_date")
 	private Date endBranchDate;
 	
 	@Column(name = "gas_indent", nullable = false)
 	private String gasIndent;
 	
-	@Column(name = "gas_cash", nullable = false)
+	@Column(name = "gas_cash")
 	private long gasCash;
 	
-	@Column(name = "start_odo", nullable = false)
+	@Column(name = "start_odo")
 	private long startODO;
 	
-	@Column(name = "end_odo", nullable = false)
+	@Column(name = "end_odo")
 	private long endODO;
 	
 	@Column(name = "driver_allowance", nullable = false)
 	private long driverAllowance;
 	
-	@Column(name = "parking", nullable = false)
+	@Column(name = "parking")
 	private long parking;
 	
-	@Column(name = "metro_charges", nullable = false)
+	@Column(name = "metro_charges")
 	private long metroCharges;
 	
-	@Column(name = "traffic_police", nullable = false)
+	@Column(name = "traffic_police")
 	private long trafficPolice;
 	
-	@Column(name = "other_trip_expense", nullable = false)
+	@Column(name = "other_trip_expense")
 	private long otherTripExpense;
 	
-	@Column(name = "total_revenue", nullable = false)	
+	@Column(name = "total_revenue")	
 	private long totalRevenue;
 	
-	@Column(name = "total_expense", nullable = false)
+	@Column(name = "total_expense")
 	private long totalExpense;
 	
-	@Column(name = "profit_loss", nullable = false)
+	@Column(name = "profit_loss")
 	private long profitLoss;
 
 	public long getId() {
