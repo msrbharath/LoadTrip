@@ -14,41 +14,21 @@ import javax.persistence.Table;
 public class Trip {
 
 	public Trip(long id, Date tripStartDate, String lorryBookingReferenceNo, String vehicleType, String vehicleNumber,
-			String from, String to, String dealerName, String invoiceBranch, long noOfPackage, long occupancyPercent,
-			long haltDays, long rateBasedOnAgreement, long loadingCharge, long unloadingCharge, String invoiceRefNo,
-			Date endBranchDate, String gasIndent, long gasCash, long startODO, long endODO, long driverAllowance,
-			long parking, long metroCharges, long trafficPolice, long otherTripExpense, long totalRevenue,
-			long totalExpense, long profitLoss) {
+			String fromPlace, String toPlace, String dealerName, String invoiceBranch, long noOfPackage, long occupancyPercent,
+			long haltDays) {
 		super();
 		this.id = id;
 		this.tripStartDate = tripStartDate;
 		this.lorryBookingReferenceNo = lorryBookingReferenceNo;
 		this.vehicleType = vehicleType;
 		this.vehicleNumber = vehicleNumber;
-		this.from = from;
-		this.to = to;
+		this.fromPlace = fromPlace;
+		this.toPlace = toPlace;
 		this.dealerName = dealerName;
 		this.invoiceBranch = invoiceBranch;
 		this.noOfPackage = noOfPackage;
 		this.occupancyPercent = occupancyPercent;
 		this.haltDays = haltDays;
-		this.rateBasedOnAgreement = rateBasedOnAgreement;
-		this.loadingCharge = loadingCharge;
-		this.unloadingCharge = unloadingCharge;
-		this.invoiceRefNo = invoiceRefNo;
-		this.endBranchDate = endBranchDate;
-		this.gasIndent = gasIndent;
-		this.gasCash = gasCash;
-		this.startODO = startODO;
-		this.endODO = endODO;
-		this.driverAllowance = driverAllowance;
-		this.parking = parking;
-		this.metroCharges = metroCharges;
-		this.trafficPolice = trafficPolice;
-		this.otherTripExpense = otherTripExpense;
-		this.totalRevenue = totalRevenue;
-		this.totalExpense = totalExpense;
-		this.profitLoss = profitLoss;
 	}
 	public Trip() {
 		super();
@@ -73,10 +53,10 @@ public class Trip {
 	private String vehicleNumber;
 	
 	@Column(name = "from_destination", nullable = false)
-	private String from;
+	private String fromPlace;
 	
 	@Column(name = "to_destination", nullable = false)
-	private String to;
+	private String toPlace;
 	
 	@Column(name = "dealer_name", nullable = false)
 	private String dealerName;
@@ -93,57 +73,6 @@ public class Trip {
 	@Column(name = "halt_days")
 	private long haltDays;
 	
-	@Column(name = "rate_based_on_agreement")
-	private long rateBasedOnAgreement;
-	
-	@Column(name = "loading_charge")
-	private long loadingCharge;
-	
-	@Column(name = "unloading_charge")
-	private long unloadingCharge;
-	
-	@Column(name = "invoice_ref_no")
-	private String invoiceRefNo;
-	
-	@Column(name = "end_branch_date")
-	private Date endBranchDate;
-	
-	@Column(name = "gas_indent", nullable = false)
-	private String gasIndent;
-	
-	@Column(name = "gas_cash")
-	private long gasCash;
-	
-	@Column(name = "start_odo")
-	private long startODO;
-	
-	@Column(name = "end_odo")
-	private long endODO;
-	
-	@Column(name = "driver_allowance", nullable = false)
-	private long driverAllowance;
-	
-	@Column(name = "parking")
-	private long parking;
-	
-	@Column(name = "metro_charges")
-	private long metroCharges;
-	
-	@Column(name = "traffic_police")
-	private long trafficPolice;
-	
-	@Column(name = "other_trip_expense")
-	private long otherTripExpense;
-	
-	@Column(name = "total_revenue")	
-	private long totalRevenue;
-	
-	@Column(name = "total_expense")
-	private long totalExpense;
-	
-	@Column(name = "profit_loss")
-	private long profitLoss;
-
 	public long getId() {
 		return id;
 	}
@@ -157,7 +86,7 @@ public class Trip {
 		return tripStartDate;
 	}
 	/**
-	 * @param tripStartDate the tripStartDate to set
+	 * @param tripStartDate the tripStartDate toPlace set
 	 */
 	public void setTripStartDate(Date tripStartDate) {
 		this.tripStartDate = tripStartDate;
@@ -169,7 +98,7 @@ public class Trip {
 		return lorryBookingReferenceNo;
 	}
 	/**
-	 * @param lorryBookingReferenceNo the lorryBookingReferenceNo to set
+	 * @param lorryBookingReferenceNo the lorryBookingReferenceNo toPlace set
 	 */
 	public void setLorryBookingReferenceNo(String lorryBookingReferenceNo) {
 		this.lorryBookingReferenceNo = lorryBookingReferenceNo;
@@ -181,7 +110,7 @@ public class Trip {
 		return vehicleType;
 	}
 	/**
-	 * @param vehicleType the vehicleType to set
+	 * @param vehicleType the vehicleType toPlace set
 	 */
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
@@ -193,34 +122,34 @@ public class Trip {
 		return vehicleNumber;
 	}
 	/**
-	 * @param vechicleNumber the vechicleNumber to set
+	 * @param vechicleNumber the vechicleNumber toPlace set
 	 */
 	public void setVehicleNumber(String vehicleNumber) {
 		this.vehicleNumber = vehicleNumber;
 	}
 	/**
-	 * @return the from
+	 * @return the fromPlace
 	 */
-	public String getFrom() {
-		return from;
+	public String getFromPlace() {
+		return fromPlace;
 	}
 	/**
-	 * @param from the from to set
+	 * @param fromPlace the fromPlace to set
 	 */
-	public void setFrom(String from) {
-		this.from = from;
+	public void setFromPlace(String fromPlace) {
+		this.fromPlace = fromPlace;
 	}
 	/**
-	 * @return the to
+	 * @return the toPlace
 	 */
-	public String getTo() {
-		return to;
+	public String getToPlace() {
+		return toPlace;
 	}
 	/**
-	 * @param to the to to set
+	 * @param toPlace the toPlace to set
 	 */
-	public void setTo(String to) {
-		this.to = to;
+	public void setToPlace(String toPlace) {
+		this.toPlace = toPlace;
 	}
 	/**
 	 * @return the dealerName
@@ -229,7 +158,7 @@ public class Trip {
 		return dealerName;
 	}
 	/**
-	 * @param dealerName the dealerName to set
+	 * @param dealerName the dealerName toPlace set
 	 */
 	public void setDealerName(String dealerName) {
 		this.dealerName = dealerName;
@@ -241,7 +170,7 @@ public class Trip {
 		return invoiceBranch;
 	}
 	/**
-	 * @param invoiceBranch the invoiceBranch to set
+	 * @param invoiceBranch the invoiceBranch toPlace set
 	 */
 	public void setInvoiceBranch(String invoiceBranch) {
 		this.invoiceBranch = invoiceBranch;
@@ -253,7 +182,7 @@ public class Trip {
 		return noOfPackage;
 	}
 	/**
-	 * @param noOfPackage the noOfPackage to set
+	 * @param noOfPackage the noOfPackage toPlace set
 	 */
 	public void setNoOfPackage(long noOfPackage) {
 		this.noOfPackage = noOfPackage;
@@ -265,7 +194,7 @@ public class Trip {
 		return occupancyPercent;
 	}
 	/**
-	 * @param occupancyPercent the occupancyPercent to set
+	 * @param occupancyPercent the occupancyPercent toPlace set
 	 */
 	public void setOccupancyPercent(long occupancyPercent) {
 		this.occupancyPercent = occupancyPercent;
@@ -277,214 +206,9 @@ public class Trip {
 		return haltDays;
 	}
 	/**
-	 * @param haltDays the haltDays to set
+	 * @param haltDays the haltDays toPlace set
 	 */
 	public void setHaltDays(long haltDays) {
 		this.haltDays = haltDays;
-	}
-	/**
-	 * @return the rateBasedOnAgreement
-	 */
-	public long getRateBasedOnAgreement() {
-		return rateBasedOnAgreement;
-	}
-	/**
-	 * @param rateBasedOnAgreement the rateBasedOnAgreement to set
-	 */
-	public void setRateBasedOnAgreement(long rateBasedOnAgreement) {
-		this.rateBasedOnAgreement = rateBasedOnAgreement;
-	}
-	/**
-	 * @return the loadingCharge
-	 */
-	public long getLoadingCharge() {
-		return loadingCharge;
-	}
-	/**
-	 * @param loadingCharge the loadingCharge to set
-	 */
-	public void setLoadingCharge(long loadingCharge) {
-		this.loadingCharge = loadingCharge;
-	}
-	/**
-	 * @return the unloadingCharge
-	 */
-	public long getUnloadingCharge() {
-		return unloadingCharge;
-	}
-	/**
-	 * @param unloadingCharge the unloadingCharge to set
-	 */
-	public void setUnloadingCharge(long unloadingCharge) {
-		this.unloadingCharge = unloadingCharge;
-	}
-	/**
-	 * @return the invoiceRefNo
-	 */
-	public String getInvoiceRefNo() {
-		return invoiceRefNo;
-	}
-	/**
-	 * @param invoiceRefNo the invoiceRefNo to set
-	 */
-	public void setInvoiceRefNo(String invoiceRefNo) {
-		this.invoiceRefNo = invoiceRefNo;
-	}
-	/**
-	 * @return the endBranchDate
-	 */
-	public Date getEndBranchDate() {
-		return endBranchDate;
-	}
-	/**
-	 * @param endBranchDate the endBranchDate to set
-	 */
-	public void setEndBranchDate(Date endBranchDate) {
-		this.endBranchDate = endBranchDate;
-	}
-	/**
-	 * @return the gasIndent
-	 */
-	public String getGasIndent() {
-		return gasIndent;
-	}
-	/**
-	 * @param gasIndent the gasIndent to set
-	 */
-	public void setGasIndent(String gasIndent) {
-		this.gasIndent = gasIndent;
-	}
-	/**
-	 * @return the gasCash
-	 */
-	public long getGasCash() {
-		return gasCash;
-	}
-	/**
-	 * @param gasCash the gasCash to set
-	 */
-	public void setGasCash(long gasCash) {
-		this.gasCash = gasCash;
-	}
-	/**
-	 * @return the startODO
-	 */
-	public long getStartODO() {
-		return startODO;
-	}
-	/**
-	 * @param startODO the startODO to set
-	 */
-	public void setStartODO(long startODO) {
-		this.startODO = startODO;
-	}
-	/**
-	 * @return the endODO
-	 */
-	public long getEndODO() {
-		return endODO;
-	}
-	/**
-	 * @param endODO the endODO to set
-	 */
-	public void setEndODO(long endODO) {
-		this.endODO = endODO;
-	}
-	/**
-	 * @return the driverAllowance
-	 */
-	public long getDriverAllowance() {
-		return driverAllowance;
-	}
-	/**
-	 * @param driverAllowance the driverAllowance to set
-	 */
-	public void setDriverAllowance(long driverAllowance) {
-		this.driverAllowance = driverAllowance;
-	}
-	/**
-	 * @return the parking
-	 */
-	public long getParking() {
-		return parking;
-	}
-	/**
-	 * @param parking the parking to set
-	 */
-	public void setParking(long parking) {
-		this.parking = parking;
-	}
-	/**
-	 * @return the metroCharges
-	 */
-	public long getMetroCharges() {
-		return metroCharges;
-	}
-	/**
-	 * @param metroCharges the metroCharges to set
-	 */
-	public void setMetroCharges(long metroCharges) {
-		this.metroCharges = metroCharges;
-	}
-	/**
-	 * @return the trafficPolice
-	 */
-	public long getTrafficPolice() {
-		return trafficPolice;
-	}
-	/**
-	 * @param trafficPolice the trafficPolice to set
-	 */
-	public void setTrafficPolice(long trafficPolice) {
-		this.trafficPolice = trafficPolice;
-	}
-	/**
-	 * @return the otherTripExpense
-	 */
-	public long getOtherTripExpense() {
-		return otherTripExpense;
-	}
-	/**
-	 * @param otherTripExpense the otherTripExpense to set
-	 */
-	public void setOtherTripExpense(long otherTripExpense) {
-		this.otherTripExpense = otherTripExpense;
-	}
-	/**
-	 * @return the totalRenvenue
-	 */
-	public long getTotalRenvenue() {
-		return totalRevenue;
-	}
-	/**
-	 * @param totalRenvenue the totalRevenue to set
-	 */
-	public void setTotalRenvenue(long totalRevenue) {
-		this.totalRevenue = totalRevenue;
-	}
-	/**
-	 * @return the totalExpense
-	 */
-	public long getTotalExpense() {
-		return totalExpense;
-	}
-	/**
-	 * @param totalExpense the totalExpense to set
-	 */
-	public void setTotalExpense(long totalExpense) {
-		this.totalExpense = totalExpense;
-	}
-	/**
-	 * @return the profitLoss
-	 */
-	
-	public long getProfitLoss() {
-		return profitLoss;
-	}
-	/**
-	 * @param profitLoss the profitLoss to set
-	 */
-	public void setProfitLoss(long profitLoss) {
-		this.profitLoss = profitLoss;
 	}
 }
